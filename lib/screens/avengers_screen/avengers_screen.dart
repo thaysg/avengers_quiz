@@ -36,11 +36,22 @@ class _AvengersScreenState extends State<AvengersScreen> {
     });
   }
 
+  score() {
+    if (rightAnswer >= 8) {
+      return 'Amazing, the Avengers will be happy to have you';
+    } else if (rightAnswer >= 6 && rightAnswer <= 7) {
+      return 'Don\'t give up, you are almost there';
+    } else {
+      return 'Sorry, you are not ready to become an Avenger';
+    }
+  }
+
   _onAlertButtonsPressed(context) {
     Alert(
       context: context,
       image: Image.asset('images/avengerslogo.png'),
       title: "YOUR SCORE",
+      desc: score(),
       buttons: [
         DialogButton(
           child: Text(
@@ -82,6 +93,7 @@ class _AvengersScreenState extends State<AvengersScreen> {
             children: [
               //Score
               Expanded(
+                flex: 2,
                 child: Column(
                   children: [
                     Padding(
