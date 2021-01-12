@@ -36,11 +36,22 @@ class _CaptainAmericaScreenState extends State<CaptainAmericaScreen> {
     });
   }
 
+  score() {
+    if (rightAnswer >= 7) {
+      return 'Amazing, Captain is proud of you';
+    } else if (rightAnswer >= 5 && rightAnswer <= 6) {
+      return 'Don\'t give up soldier, you are almost there';
+    } else {
+      return 'Sorry, the army is not for you';
+    }
+  }
+
   _onAlertButtonsPressed(context) {
     Alert(
       context: context,
       image: Image.asset('images/captainamerica.png'),
       title: "YOUR SCORE",
+      desc: score(),
       buttons: [
         DialogButton(
           child: Text(

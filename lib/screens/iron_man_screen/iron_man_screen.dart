@@ -39,14 +39,12 @@ class _IronManScreenState extends State<IronManScreen> {
   }
 
   score() {
-    if (rightAnswer > 7) {
-      setState(() {
-        Text('Congrats, You are Great');
-      });
+    if (rightAnswer >= 7) {
+      return 'Amazing, two genius working together';
+    } else if (rightAnswer >= 5 && rightAnswer <= 6) {
+      return 'Don\'t give up, you are almost there';
     } else {
-      setState(() {
-        Text('Sorry, You\'re not a great fan');
-      });
+      return 'Sorry, Tony Stark only works with the best';
     }
   }
 
@@ -55,6 +53,7 @@ class _IronManScreenState extends State<IronManScreen> {
       context: context,
       image: Image.asset('images/ironman.png'),
       title: "YOUR SCORE",
+      desc: score(),
       buttons: [
         DialogButton(
           child: Text(
